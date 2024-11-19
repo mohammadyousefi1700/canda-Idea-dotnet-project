@@ -1,0 +1,76 @@
+@{
+    Layout = "_Layout";
+}
+
+<div style="display: flex; flex-direction: row;justify-content: center; margin-top: 100px;">
+<form style="display: flex; flex-direction: column;width: 400px;align-items: center;" method="post">
+        <span style="font-size: 3rem; font-weight: 700;">کندا ایده</span>
+  <span style="font-size: 1rem;color: gray;font-weight: 500;">تجربه مهندسی خلاق</span>
+
+    <input    style="width: 300px; border-top: none; outline: none; border-left: none; border-right: none; padding-bottom: 3px; border-color: rgb(170, 170, 170);"  placeholder="نام کاربری" type="text" id="username" name="username" required />
+
+     <div class="form-group" style="position: relative; width: 300px; margin-top: 20px;">
+                <input dir="rtl" 
+                       id="password" 
+                       type="password" 
+                       name="Password" 
+                style="width: 300px; border-top: none; outline: none; border-left: none; border-right: none; padding-bottom: 3px; border-color: rgb(170, 170, 170);" 
+                       placeholder="کلمه عبور" />
+                
+                <!-- آیکن چشم در کنار ورودی پسورد -->
+                <span id="togglePassword" 
+                      style="position: absolute; top: 50%; right: 280px; transform: translateY(-50%); cursor: pointer; color: gray;">
+                    👁️
+                </span>
+            </div>
+            
+                <button style="font-size: 20px;cursor: pointer; margin-bottom: 20px; margin-top: 20px; width: fit-content; padding: 10px;border-radius: 20px;color: white ;background-color: rgb(154, 45, 255);" class="text-white ">ورود به سامانه</button>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div style="color: red;">@ViewBag.ErrorMessage</div>
+    }
+
+
+    <fieldset style="  border-bottom: none; border-left: none; border-radius: none;  border-top: 1px solid #292525;
+ color:gray;width: 200px;height: 0px;">
+  <legend style="margin-right: 30px;">آیا حساب کاربری دارید</legend>
+</fieldset>
+<a style="text-decoration: none;cursor: pointer;" href="@Url.Action("Register")">
+<button  style=" font-size: 20px;color: white;cursor: pointer; padding: 10px; margin-top: 40px;border-radius: 40px; background-color: rgb(172, 172, 172);">
+ساخت حساب کاربری
+
+</button>
+</a>
+</form>
+
+    <img width="600px" height="500px" class="img-fluid"src="/img/sliderOne.png" alt="" sizes="" srcset="">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- اسکریپت جاوااسکریپت بعد از بارگذاری محتوای HTML -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', () => {
+            // تغییر نوع ورودی بین 'password' و 'text'
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.textContent = '🙈'; // آیکن به مخفی کردن تغییر کند
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.textContent = '👁️'; // آیکن به نمایش دادن تغییر کند
+            }
+        });
+    });
+</script>
